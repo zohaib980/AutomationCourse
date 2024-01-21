@@ -15,8 +15,8 @@ describe("Create, Edit, Delete and Restore Tasks", () => {
   })
   it("Add new, View All Tasks and Completed", () => {
     
-    cy.visit("https://my.towio.com/?company=21294#addon-com.towio.plan-64a546f0888ce");
-    loginPage.login('towioplan@gmail.com','123456') 
+    cy.visit("");
+    loginPage.login('','123456') 
     taskCreation.loadTaskCreationPage() //Load Task Creation page
     taskCreation.addNewTask() //Add and Validate a New Task
     

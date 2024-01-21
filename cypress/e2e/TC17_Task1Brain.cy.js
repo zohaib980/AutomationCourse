@@ -11,9 +11,7 @@ describe("Create, Edit, Delete and Restore Tasks", () => {
 
   it("Add new, View All Tasks and Completed", () => {
     //Login
-    cy.visit(
-      ""
-    );
+    cy.visit("");
     cy.get("#email").should("exist").type(""); //email
     cy.get("#password").should("exist").type(""); //Password
     cy.get("#loginBtn").should("exist").click(); //Login Button
