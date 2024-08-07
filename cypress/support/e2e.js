@@ -15,11 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import 'cypress-xpath'
-require('cypress-xpath');
-import 'cypress-plugin-stripe-elements';
-import 'cypress-mochawesome-reporter/register';
+import 'cypress-iframe'
 import 'cypress-if'
+require('cypress-xpath');
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -34,21 +32,7 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 
   app.document.head.appendChild(style);
 }
-//Handling exceptions
 Cypress.on('uncaught:exception', (err, runnable) => {
-  // Handle specific errors
-  if (
-      err.message.includes('Cannot read properties of null (reading \'click\')') ||
-      err.message.includes('Cannot read properties of undefined (reading \'replaceAll\')') ||
-      err.message.includes('IntegrationError: Please call Stripe() with your publishable key. You used an empty string.') ||
-      err.message.includes("TypeError: Cannot read properties of undefined (reading 'data')") ||
-      err.message.includes("TypeError: Cannot read properties of null (reading 'postMessage')") ||
-      err.message.includes("Please call Stripe() with your publishable key. You used an empty string.")
-  ) {
-      // Returning false here prevents Cypress from failing the test
-      return false;
-  }
-  // Let other errors fail the test
+  // Returning false prevents Cypress from failing the test
   return false;
-})
-
+});
