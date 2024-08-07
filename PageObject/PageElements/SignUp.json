@@ -1,0 +1,9 @@
+{
+    "HomePageLocators": {
+        "signUP_Tab": ".ico-register"
+    },
+    "SignUpPageLocators": {
+        "gender_radioButton": "#gender-female",
+        "first_name": "#FirstName"
+    }
+}
