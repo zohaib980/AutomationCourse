@@ -1,21 +1,42 @@
 {
-  "name": "towio",
+  "name": "chargeautomation",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "cypress open",
+    "test-electron": "cypress run",
+    "test-electron-headed": "cypress run --headed",
+    "report-chrome": "npx cypress run --browser chrome",
+    "report-chrome-headed": "npx cypress run --headed --browser chrome",
+    "test-dashboard": "npx cypress run --record --key 9f288ec8-7468-4b13-a722-75b14fcf5418 --browser chrome --headed"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Waqas",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^13.6.2",
-    "cypress-if": "^1.10.5"
-  },
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.5",
+    "@types/mysql": "^2.15.26",
+    "cypress": "^13.13.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-if": "^1.12.0",
     "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.6.1",
+    "cypress-plugin-stripe-elements": "^1.0.2",
+    "cypress-sql-server": "^1.0.0",
+    "cypress-wait-until": "^3.0.1",
     "cypress-xpath": "^2.0.1",
-    "xlsx": "^0.18.5"
+    "mysql": "github:mysqljs/mysql"
+  },
+  "compilerOptions": {
+    "types": [
+      "cypress",
+      "cypress-plugin-stripe-elements",
+      "@4tw/cypress-drag-drop"
+    ]
+  },
+  "dependencies": {
+    "cypress-mysql": "^1.0.2",
+    "lodash": "^4.17.21",
+    "ssh2": "^1.15.0"
   }
 }

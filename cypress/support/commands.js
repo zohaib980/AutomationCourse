@@ -2,9 +2,7 @@
 // This example commands.js shows you how to
 // create various custom commands and overwrite
 // existing commands.
-// URL: https://my.towio.com/?company=21294#addon-com.towio.plan-64a546f0888ce
-// Email: towioplan@gmail.com
-// Pass : 123456
+//
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
@@ -12,13 +10,7 @@
 //
 //
 // -- This is a parent command --
-     Cypress.Commands.add('conduitLogin', (email, password) => { 
-        cy.visit('https://react-redux.realworld.io/')
-        cy.contains('Sign in').click()
-        cy.get('input[type="email"]').type(email)
-        cy.get('input[type="password"]').type(password)
-        cy.get('button[type="submit"]').click()
-      })
+// Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
 // -- This is a child command --
@@ -31,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// Custom command to handle iframes
+Cypress.Commands.add('getIframeBody', (iframeSelector) => {
+    return cy
+        .get(iframeSelector)
+        .its('0.contentDocument.body')
+        .then(cy.wrap);
+})
+
+import 'cypress-file-upload';
+require('@4tw/cypress-drag-drop')
+require('cypress-xpath');
+import 'cypress-if'
+import 'cypress-wait-until';
+import 'cypress-xpath'
+import 'cypress-iframe'
